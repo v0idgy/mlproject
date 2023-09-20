@@ -30,7 +30,7 @@ class ModelTrainer:
     def initiate_model_trainer(self,train_array,test_array,preprocessor_path):
         try:
             logging.info("Split training and test input data")
-            X_train,y_train,X_test,y_test=(
+            X_train,Y_train,X_test,y_test=(
                 train_array[:,:-1],
                 train_array[:,-1],
                 test_array[:,:-1],
@@ -46,8 +46,10 @@ class ModelTrainer:
                 KNeighborsRegressor(),
                 CatBoostRegressor(),
             )
+
+            # model_report: dict = evaluate_model{X_train=X_train,Y_train=y_train,X_test,y_test,models=models}
             
-            logging.info('Load preprocessor')
+           
         except:
             pass
 
